@@ -9,6 +9,21 @@
 #define SIZE 100
 
 /// <summary>
+/// 線形探索法によって配列「nums[size]」から指定された数値「num」を探し
+/// 見つかった場所を返す、見つからなかった場合は-1を返す
+/// </summary>
+static int search(int num, const int nums[], int size)
+{
+  for (int i = 0; i < size; ++i) {
+    if (nums[i] == num) {
+      return i;
+    }
+  }
+
+  return -1;
+}
+
+/// <summary>
 /// 線形探索のメインの処理
 /// </summary>
 void search_sequential(void) {
@@ -43,20 +58,5 @@ void search_sequential(void) {
   else {
     printf("%d は配列の %d番目 に見つかりました。\n", num, foundIndex);
   }
-}
-
-/// <summary>
-/// 線形探索法によって配列「nums[size]」から指定された数値「num」を探し
-/// 見つかった場所を返す、見つからなかった場合は-1を返す
-/// </summary>
-static int search(int num, int nums[], int size)
-{
-  for (int i = 0; i < size; ++i) {
-    if (nums[i] == num) {
-      return i;
-    }
-  }
-
-  return -1;
 }
 

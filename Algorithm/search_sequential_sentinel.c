@@ -13,12 +13,29 @@
 #define SIZE 100 + 1
 
 /// <summary>
+/// 線形探索法によって配列「nums[size]」から指定された数値「num」を探し見つかった場所を返す。
+/// 配列の末尾には番兵を潜ませるため、指定された数値は必ず見つかることを前提とした処理
+/// </summary>
+static int search(int num, int nums[], int size)
+{
+  // 番兵を設定
+  nums[size - 1] = num;
+
+  // 配列の条件式を省略(番兵がいるので不要)
+  for (int i = 0; ; ++i) {
+    if (nums[i] == num) {
+      return i;
+    }
+  }
+}
+
+/// <summary>
 /// 線形探索(番兵法)のメインの処理
 /// </summary>
 void search_sequential_sentinel(void) {
 
   // 配列を準備(最後の要素は番兵用、初期値は-1としているが-1という数値に特に意味はない)
-  const int NUMS[SIZE] = {
+  int NUMS[SIZE] = {
     15, 99, 20, 96, 32, 44,  7, 54, 61, 68,
      2, 24,  8, 72, 37,  6, 25, 98, 74, 52,
     56, 88, 11, 35, 18, 40, 31, 79, 26, 42,
@@ -50,19 +67,3 @@ void search_sequential_sentinel(void) {
   }
 }
 
-/// <summary>
-/// 線形探索法によって配列「nums[size]」から指定された数値「num」を探し見つかった場所を返す。
-/// 配列の末尾には番兵を潜ませるため、指定された数値は必ず見つかることを前提とした処理
-/// </summary>
-static int search(int num, int nums[], int size)
-{
-  // 番兵を設定
-  nums[size - 1] = num;
-
-  // 配列の条件式を省略(番兵がいるので不要)
-  for (int i = 0; ; ++i) {
-    if (nums[i] == num) {
-      return i;
-    }
-  }
-}
