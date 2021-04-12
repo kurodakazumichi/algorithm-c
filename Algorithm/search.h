@@ -1,7 +1,10 @@
-#pragma once
+ï»¿#pragma once
 
-// üŒ`’Tõ–@ƒAƒ‹ƒSƒŠƒYƒ€
+// ç·šå½¢æ¢ç´¢æ³•ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ 
 void search_sequential(void);
 
-// üŒ`’Tõ–@(”Ô•º–@)ƒAƒ‹ƒSƒŠƒYƒ€
+// ç·šå½¢æ¢ç´¢æ³•(ç•ªå…µæ³•)ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ 
 void search_sequential_sentinel(void);
+
+// äºŒåˆ†æ¢ç´¢æ³•ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ 
+void search_binary(void);

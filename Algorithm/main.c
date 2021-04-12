@@ -1,4 +1,4 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include "search.h"
 
 struct Section {
@@ -6,33 +6,41 @@ struct Section {
 	void (*func)(void);
 };
 
-// ’TõƒAƒ‹ƒSƒŠƒYƒ€ƒZƒNƒVƒ‡ƒ“
+// æ¢ç´¢ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã‚»ã‚¯ã‚·ãƒ§ãƒ³
 struct Section SEARCH_SECTIONS[] = {
-	{"üŒ`’Tõ–@", search_sequential},
-	{"üŒ`’Tõ–@(”Ô•º)", search_sequential_sentinel},
+	{"ç·šå½¢æ¢ç´¢æ³•", search_sequential},
+	{"ç·šå½¢æ¢ç´¢æ³•(ç•ªå…µ)", search_sequential_sentinel},
+	{"äºŒåˆ†æ¢ç´¢æ³•", search_binary},
 };
 
-// ƒZƒNƒVƒ‡ƒ“‚Ì”
+// ã‚»ã‚¯ã‚·ãƒ§ãƒ³ã®æ•°
 const int SECTION_COUNT = sizeof(SEARCH_SECTIONS) / sizeof(struct Section);
 
 /// <summary>
-/// ƒGƒ“ƒgƒŠ[ƒ|ƒCƒ“ƒg
+/// ã‚¨ãƒ³ãƒˆãƒªãƒ¼ãƒã‚¤ãƒ³ãƒˆ
 /// </summary>
 int main(void) {
 
-	// ƒZƒNƒVƒ‡ƒ“‚Ì‘I‘ğ
-	int sectionIndex = 0;
-	printf("ƒZƒNƒVƒ‡ƒ“”Ô†‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢\n\n");
+	while (1) 
+	{
+		// ã‚»ã‚¯ã‚·ãƒ§ãƒ³ã®é¸æŠ
+		int sectionIndex = 0;
+		printf("ã‚»ã‚¯ã‚·ãƒ§ãƒ³ç•ªå·ã‚’é¸æŠã—ã¦ãã ã•ã„\n\n");
 
-	for (int i = 0; i < SECTION_COUNT; ++i) {
-		printf("[%d] %s\n", i, SEARCH_SECTIONS[i].title);
+		for (int i = 0; i < SECTION_COUNT; ++i) {
+			printf("[%d] %s\n", i, SEARCH_SECTIONS[i].title);
+		}
+
+		scanf_s("%d", &sectionIndex);
+
+		if (0 <= sectionIndex && sectionIndex < SECTION_COUNT) {
+			SEARCH_SECTIONS[sectionIndex].func();
+		}
+		else {
+			break;
+		}
 	}
 
-	scanf_s("%d", &sectionIndex);
-
-	if (0 <= sectionIndex && sectionIndex < SECTION_COUNT) {
-		SEARCH_SECTIONS[sectionIndex].func();
-	}
 
 	return 0;
 }

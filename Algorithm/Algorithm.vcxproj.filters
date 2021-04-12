@@ -33,6 +33,9 @@
     <ClCompile Include="common.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="search_binary.c">
+      <Filter>ソース ファイル\01_Search</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="sample.txt">

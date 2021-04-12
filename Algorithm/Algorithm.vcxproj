@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="common.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="search_binary.c" />
     <ClCompile Include="search_sequential.c" />
     <ClCompile Include="search_sequential_sentinel.c" />
   </ItemGroup>
