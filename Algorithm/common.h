@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
-// ƒwƒbƒ_‚ğ•\¦‚·‚éŠÖ”
+// ãƒ˜ãƒƒãƒ€ã‚’è¡¨ç¤ºã™ã‚‹é–¢æ•°
 void drawHeader(char* title);

@@ -1,8 +1,8 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include "common.h"
 
 /// <summary>
-/// ƒwƒbƒ_‚ğ•\¦‚·‚éŠÖ”
+/// ãƒ˜ãƒƒãƒ€ã‚’è¡¨ç¤ºã™ã‚‹é–¢æ•°
 /// </summary>
 void drawHeader(char* title) {
 	printf("--------------------------------------------------\n");

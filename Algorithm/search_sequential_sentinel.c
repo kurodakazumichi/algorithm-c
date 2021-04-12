@@ -1,27 +1,27 @@
-//-----------------------------------------------------------------------------
-// ���`�T���@�ɂ��T���A���S���Y�������A�ԕ��@�ɂ�菈������������������
+﻿//-----------------------------------------------------------------------------
+// 線形探索法による探索アルゴリズムだが、番兵法により処理を高速かしたもの
 //
-// �� �ԕ��@�Ƃ�
-// �z��̖����ɒT�����������l�����Ă����A�K���Ō�ɂ͌�����悤�ɂ��Ă������Ƃ�
-// �z��͈̔͊O�`�F�b�N�̏������ȗ����邱�Ƃō�������}���@�ł���B
+// ■ 番兵法とは
+// 配列の末尾に探索したい数値を入れておき、必ず最後には見つかるようにしておくことで
+// 配列の範囲外チェックの処理を省略することで高速化を図る手法である。
 //-----------------------------------------------------------------------------
 #include <stdio.h>
 #include "common.h"
 #include "search.h"
 
-// �z��̃T�C�Y�͔ԕ�������邽��+1����
+// 配列のサイズは番兵をいれるため+1する
 #define SIZE 100 + 1
 
 /// <summary>
-/// ���`�T���@�ɂ���Ĕz��unums[size]�v����w�肳�ꂽ���l�unum�v��T�����������ꏊ��Ԃ��B
-/// �z��̖����ɂ͔ԕ�����܂��邽�߁A�w�肳�ꂽ���l�͕K�������邱�Ƃ�O��Ƃ�������
+/// 線形探索法によって配列「nums[size]」から指定された数値「num」を探し見つかった場所を返す。
+/// 配列の末尾には番兵を潜ませるため、指定された数値は必ず見つかることを前提とした処理
 /// </summary>
 static int search(int num, int nums[], int size)
 {
-  // �ԕ���ݒ�
+  // 番兵を設定
   nums[size - 1] = num;
 
-  // �z��̏��������ȗ�(�ԕ�������̂ŕs�v)
+  // 配列の条件式を省略(番兵がいるので不要)
   for (int i = 0; ; ++i) {
     if (nums[i] == num) {
       return i;
@@ -30,11 +30,11 @@ static int search(int num, int nums[], int size)
 }
 
 /// <summary>
-/// ���`�T��(�ԕ��@)�̃��C���̏���
+/// 線形探索(番兵法)のメインの処理
 /// </summary>
 void search_sequential_sentinel(void) {
 
-  // �z�������(�Ō�̗v�f�͔ԕ��p�A�����l��-1�Ƃ��Ă��邪-1�Ƃ������l�ɓ��ɈӖ��͂Ȃ�)
+  // 配列を準備(最後の要素は番兵用、初期値は-1としているが-1という数値に特に意味はない)
   int NUMS[SIZE] = {
     15, 99, 20, 96, 32, 44,  7, 54, 61, 68,
      2, 24,  8, 72, 37,  6, 25, 98, 74, 52,
@@ -51,19 +51,19 @@ void search_sequential_sentinel(void) {
 
   int num = 0;
 
-  // �f�[�^����
-  drawHeader("���`�T���@(�ԕ��@)�̃A���S���Y��");
-  printf("�������������l����͂��Ă�������:");
+  // データ入力
+  drawHeader("線形探索法(番兵法)のアルゴリズム");
+  printf("検索したい数値を入力してください:");
   scanf_s("%d", &num);
 
-  // ���l������
+  // 数値を検索
   int foundIndex = search(num, NUMS, SIZE);
 
   if (foundIndex == SIZE - 1) {
-    printf("%d�͌�����܂���ł����B\n", num);
+    printf("%dは見つかりませんでした。\n", num);
   }
   else {
-    printf("%d �͔z��� %d�Ԗ� �Ɍ�����܂����B\n", num, foundIndex);
+    printf("%d は nums[%d] に見つかりました。\n", num, foundIndex);
   }
 }
 
